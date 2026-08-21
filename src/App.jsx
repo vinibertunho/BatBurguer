@@ -4,6 +4,8 @@ import Home from './pages/Home'
 import Login from './pages/Login'
 import Menu from './pages/Menu'
 import Produto from './pages/Produto'
+import Sobre from './pages/Sobre'
+import Contato from './pages/Contato'
 import './App.css'
 
 function App() {
@@ -13,6 +15,8 @@ function App() {
     '/carrinho': <Carrinho />,
     '/checkout': <Checkout />,
     '/login': <Login />,
+    '/sobre': <Sobre />,
+    '/contato': <Contato />,
   }
 
   if (produtoId) return <Produto id={Number(produtoId)} />

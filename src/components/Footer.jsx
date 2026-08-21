@@ -7,6 +7,12 @@ export default function Footer() {
                 </h2>
 
                 <div className="flex items-center gap-6 text-sm font-medium">
+                    <a href="/sobre" className="hover:text-[#ECC94B] transition-colors">
+                        Sobre
+                    </a>
+                    <a href="/contato" className="hover:text-[#ECC94B] transition-colors">
+                        Contato
+                    </a>
                     <a href="#" className="hover:text-[#ECC94B] transition-colors cursor-pointer">
                         Instagram
                     </a>

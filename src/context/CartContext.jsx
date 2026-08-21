@@ -6,8 +6,14 @@ const valorNumerico = (preco) => Number(preco.replace('R$', '').replace('.', '')
 
 function CartProvider({ children }) {
   const [itens, setItens] = useState(() => {
-    const salvo = localStorage.getItem('batburguer-carrinho')
-    return salvo ? JSON.parse(salvo) : []
+    try {
+      const salvo = localStorage.getItem('batburguer-carrinho')
+      const itensSalvos = salvo ? JSON.parse(salvo) : []
+      return Array.isArray(itensSalvos) ? itensSalvos : []
+    } catch {
+      localStorage.removeItem('batburguer-carrinho')
+      return []
+    }
   })
 
   useEffect(() => {

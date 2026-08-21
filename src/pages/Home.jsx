@@ -20,7 +20,7 @@ function Home() {
 
     return (
         <div id="topo" className="min-h-screen bg-[#0A0D14] text-white">
-            <Header quantidade={quantidade} mudarPagina={mudarPagina} paginaAtual="home" />
+            <Header quantidade={quantidade} />
 
       <main>
         <section className="relative flex min-h-170 items-end overflow-hidden pb-20 pt-36 lg:min-h-190 lg:pb-28">
