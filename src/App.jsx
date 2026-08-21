@@ -1,19 +1,22 @@
-import { useState } from 'react';
-import Home from './pages/Home';
-import Sobre from './pages/Sobre';
-import Contato from './pages/Contato';
-import './App.css';
+import Carrinho from './pages/Carrinho'
+import Checkout from './pages/Checkout'
+import Home from './pages/Home'
+import Login from './pages/Login'
+import Menu from './pages/Menu'
+import Produto from './pages/Produto'
+import './App.css'
 
 function App() {
-    const [paginaAtual, setPaginaAtual] = useState('home');
+  const produtoId = window.location.pathname.match(/^\/produto\/(\d+)$/)?.[1]
+  const paginas = {
+    '/menu': <Menu />,
+    '/carrinho': <Carrinho />,
+    '/checkout': <Checkout />,
+    '/login': <Login />,
+  }
 
-    return (
-        <div className="bg-[#0A0D14] min-h-screen">
-            {paginaAtual === 'home' && <Home mudarPagina={setPaginaAtual} />}
-            {paginaAtual === 'sobre' && <Sobre mudarPagina={setPaginaAtual} />}
-            {paginaAtual === 'contato' && <Contato mudarPagina={setPaginaAtual} />}
-        </div>
-    );
+  if (produtoId) return <Produto id={Number(produtoId)} />
+  return paginas[window.location.pathname] ?? <Home />
 }
 
 export default App;
