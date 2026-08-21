@@ -18,9 +18,9 @@ function Home() {
   const avancar = () => setInicio((atual) => (atual + 1) % produtosNovos.length)
   const voltar = () => setInicio((atual) => (atual - 1 + produtosNovos.length) % produtosNovos.length)
 
-  return (
-    <div id="topo" className="min-h-screen bg-[#0A0D14] text-white">
-      <Header quantidade={quantidade} />
+    return (
+        <div id="topo" className="min-h-screen bg-[#0A0D14] text-white">
+            <Header quantidade={quantidade} mudarPagina={mudarPagina} paginaAtual="home" />
 
       <main>
         <section className="relative flex min-h-170 items-end overflow-hidden pb-20 pt-36 lg:min-h-190 lg:pb-28">
@@ -70,4 +70,4 @@ function Home() {
   )
 }
 
-export default Home
+export default Home;

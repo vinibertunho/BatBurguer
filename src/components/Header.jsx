@@ -62,4 +62,4 @@ function Header({ quantidade = 0 }) {
 	)
 }
 
-export default Header
+export default Header;

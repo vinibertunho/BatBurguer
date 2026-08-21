@@ -19,4 +19,4 @@ function App() {
   return paginas[window.location.pathname] ?? <Home />
 }
 
-export default App
+export default App;
