@@ -1,7 +1,7 @@
 import { FaPlus } from 'react-icons/fa'
 import Button from './Button'
 
-function Card({ nome, descricao, preco, tag, imagem, onAdicionar }) {
+function Card({ id, nome, descricao, preco, tag, imagem, onAdicionar, onDetalhes }) {
 	return (
 		<article className="flex h-full flex-col overflow-hidden rounded-xl border border-slate-700 bg-slate-900/80 shadow-lg shadow-black/20">
 			<div className="relative aspect-4/3 overflow-hidden bg-slate-800">
@@ -21,7 +21,7 @@ function Card({ nome, descricao, preco, tag, imagem, onAdicionar }) {
 				<p className="mt-4 text-2xl font-extrabold text-[#ECC94B]">{preco}</p>
 
 				<div className="mt-5 flex flex-wrap gap-3">
-					<Button variant="outline">VER DETALHES</Button>
+					<Button variant="outline" onClick={() => onDetalhes?.(id)}>VER DETALHES</Button>
 					<Button onClick={onAdicionar}>
 						<FaPlus aria-hidden="true" />
 						ADICIONAR

@@ -5,16 +5,18 @@ import Footer from '../components/Footer'
 import Header from '../components/Header'
 import produtos from '../data/produtos'
 import gotham from '../assets/gotham.png'
+import { useCart } from '../context/CartContext'
 
 function Home() {
-  const [quantidade, setQuantidade] = useState(0)
+  const { quantidade, adicionar } = useCart()
   const [inicio, setInicio] = useState(0)
-  const produtosVisiveis = Array.from({ length: Math.min(3, produtos.length) }, (_, indice) => (
-    produtos[(inicio + indice) % produtos.length]
+  const produtosNovos = produtos.filter((produto) => produto.tag === 'NOVO')
+  const produtosVisiveis = Array.from({ length: Math.min(3, produtosNovos.length) }, (_, indice) => (
+    produtosNovos[(inicio + indice) % produtosNovos.length]
   ))
 
-  const avancar = () => setInicio((atual) => (atual + 1) % produtos.length)
-  const voltar = () => setInicio((atual) => (atual - 1 + produtos.length) % produtos.length)
+  const avancar = () => setInicio((atual) => (atual + 1) % produtosNovos.length)
+  const voltar = () => setInicio((atual) => (atual - 1 + produtosNovos.length) % produtosNovos.length)
 
   return (
     <div id="topo" className="min-h-screen bg-[#0A0D14] text-white">
@@ -22,9 +24,9 @@ function Home() {
 
       <main>
         <section className="relative flex min-h-170 items-end overflow-hidden pb-20 pt-36 lg:min-h-190 lg:pb-28">
-          <img src={gotham} alt="Gotham City à noite" className="absolute inset-0 h-full w-full object-cover opacity-55 blur-[1px]" />
-          <div className="absolute inset-0 bg-linear-to-r from-[#0A0D14] via-[#0A0D14]/75 to-[#0A0D14]/25" />
-          <div className="absolute inset-0 bg-linear-to-t from-[#0A0D14] via-transparent to-[#0A0D14]/60" />
+          <img src={gotham} alt="Gotham City à noite" className="absolute inset-0 h-full w-full object-cover opacity-75 blur-[1px]" />
+          <div className="absolute inset-0 bg-linear-to-r from-[#0A0D14]/85 via-[#0A0D14]/50 to-[#0A0D14]/15" />
+          <div className="absolute inset-0 bg-linear-to-t from-[#0A0D14]/75 via-transparent to-[#0A0D14]/35" />
 
           <div className="relative mx-auto w-full max-w-7xl px-6 lg:px-10">
             <div className="max-w-3xl animate-[fade-in_700ms_ease-out]">
@@ -35,7 +37,7 @@ function Home() {
               <p className="mt-7 max-w-xl text-lg leading-8 text-slate-200">
                 Ingredientes artesanais, combinações lendárias e um sabor vigilante para enfrentar qualquer noite na cidade.
               </p>
-              <a href="#menu" className="mt-9 inline-flex items-center gap-3 rounded-full bg-[#ECC94B] px-7 py-4 text-sm font-black tracking-wider text-[#0A0D14] transition-transform hover:scale-105">
+              <a href="/menu" className="mt-9 inline-flex items-center gap-3 rounded-full bg-[#ECC94B] px-7 py-4 text-sm font-black tracking-wider text-[#0A0D14] transition-transform hover:scale-105">
                 VER MENU LENDÁRIO <FiArrowRight size={19} aria-hidden="true" />
               </a>
             </div>
@@ -57,7 +59,7 @@ function Home() {
             </div>
             <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
               {produtosVisiveis.map((produto) => (
-                <Card key={produto.id} {...produto} onAdicionar={() => setQuantidade((atual) => atual + 1)} />
+                <Card key={produto.id} {...produto} onAdicionar={() => adicionar(produto)} onDetalhes={(id) => { window.location.href = `/produto/${id}` }} />
               ))}
             </div>
           </div>
