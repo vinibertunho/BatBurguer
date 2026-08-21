@@ -9,10 +9,10 @@ function Header({ quantidade = 0 }) {
 
 	const links = [
 		{ label: 'Início', href: '/', ativo: paginaAtual === '/' },
-		{ label: 'Menu', href: '/menu', ativo: paginaAtual === '/menu' },
+		{ label: 'Menu', href: './menu', ativo: paginaAtual === '/menu' },
 		{ label: 'Sobre Nós', href: '/sobre', ativo: paginaAtual === '/sobre' },
-		{ label: 'Contato', href: '/contato', ativo: paginaAtual === '/contato' },
-		{ label: 'Login', href: '/login', ativo: paginaAtual === '/login' },
+		{ label: 'Contato', href: './contato', ativo: paginaAtual === '/contato' },
+		{ label: 'Login', href: './login', ativo: paginaAtual === '/login' },
 	]
 
 	const fecharMenu = () => setMenuAberto(false)
