@@ -48,7 +48,7 @@ export default function Contato({ mudarPagina }) {
         <div className="min-h-screen bg-[#0A0D14] font-sans text-slate-300 flex flex-col pt-20">
             <Header mudarPagina={mudarPagina} paginaAtual="contato" />
 
-            <main className="flex-grow max-w-6xl mx-auto w-full px-6 py-16">
+            <main className="grow max-w-6xl mx-auto w-full px-6 py-16">
                 <div className="border-l-4 border-[#ECC94B] pl-4 mb-12">
                     <h1 className="text-4xl text-[#ECC94B] font-black uppercase tracking-wider mb-2">
                         Mandar Bat-Sinal

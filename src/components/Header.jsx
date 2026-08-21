@@ -5,14 +5,14 @@ import { FiMenu, FiSearch, FiX } from 'react-icons/fi'
 
 function Header({ quantidade = 0 }) {
 	const [menuAberto, setMenuAberto] = useState(false)
-	const paginaMenu = window.location.pathname === '/menu'
+	const paginaAtual = window.location.pathname
 
 	const links = [
-		{ label: 'Início', href: '/', ativo: !paginaMenu },
-		{ label: 'Menu', href: '/menu', ativo: paginaMenu },
-		{ label: 'Sobre Nós', href: '#sobre' },
-		{ label: 'Contato', href: '#contato' },
-		{ label: 'Login', href: '/login' },
+		{ label: 'Início', href: '/', ativo: paginaAtual === '/' },
+		{ label: 'Menu', href: '/menu', ativo: paginaAtual === '/menu' },
+		{ label: 'Sobre Nós', href: '/sobre', ativo: paginaAtual === '/sobre' },
+		{ label: 'Contato', href: '/contato', ativo: paginaAtual === '/contato' },
+		{ label: 'Login', href: '/login', ativo: paginaAtual === '/login' },
 	]
 
 	const fecharMenu = () => setMenuAberto(false)
