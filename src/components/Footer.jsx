@@ -1,10 +1,27 @@
-function Footer() {
-	return (
-		<footer id="contato" className="border-t border-white/10 bg-[#0A0D14] px-6 py-8 text-center text-sm text-slate-400">
-			<p className="font-bold tracking-[0.2em] text-[#ECC94B]">BATBURGUER</p>
-			<p className="mt-2">O sabor que protege a cidade.</p>
-		</footer>
-	)
-}
+export default function Footer() {
+    return (
+        <footer className="w-full bg-[#0A0D14] border-t border-slate-800/60 py-10 px-6 text-center text-slate-400">
+            <div className="mx-auto max-w-7xl flex flex-col items-center gap-4">
+                <h2 className="text-[#ECC94B] font-black tracking-widest text-lg uppercase">
+                    BATBURGUER
+                </h2>
 
-export default Footer
+                <div className="flex items-center gap-6 text-sm font-medium">
+                    <a href="#" className="hover:text-[#ECC94B] transition-colors cursor-pointer">
+                        Instagram
+                    </a>
+                    <a href="#" className="hover:text-[#ECC94B] transition-colors cursor-pointer">
+                        Facebook
+                    </a>
+                    <a href="#" className="hover:text-[#ECC94B] transition-colors cursor-pointer">
+                        WhatsApp
+                    </a>
+                </div>
+
+                <p className="text-xs text-slate-500 mt-2">
+                    © 2024 BatBurguer. Gotham's Finest Flavors.
+                </p>
+            </div>
+        </footer>
+    );
+}
